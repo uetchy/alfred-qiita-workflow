@@ -1,0 +1,7 @@
+# Bundler
+/.bundle
+/vendor/bundle
+
+# OS Specific
+.DS_Store
+Thumbs.db
