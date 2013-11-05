@@ -2,6 +2,10 @@
 
 ## Installation
 
+Double-click `Qiita.alfredworkflow` to install workflow.
+
+## Development installation
+
 ```
 $ bundle install --path vendor/bundle --binstubs=.bundle/bin
 $ rake link
