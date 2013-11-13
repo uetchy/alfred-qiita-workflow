@@ -10,7 +10,7 @@ Double-click `Qiita.alfredworkflow` to install workflow.
 
 ```
 $ bundle install --path vendor/bundle --binstubs=.bundle/bin
-$ rake link
+$ bundle exec rake link
 ```
 
 If you using Alfred with Dropbox Sync folder, you should type `rake install` instead of `rake link`.
