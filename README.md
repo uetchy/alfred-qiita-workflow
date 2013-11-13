@@ -1,5 +1,7 @@
 # Alfred Qiita Workflow
 
+![alt tag](https://raw.github.com/oame/alfred-qiita-workflow/master/screenshots/qiita-workflow.png)
+
 ## Installation
 
 Double-click `Qiita.alfredworkflow` to install workflow.
