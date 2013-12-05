@@ -4,7 +4,7 @@
 
 # System Requirements
 
-- OS X Mavericks(with Ruby 2.0.0)
+- OS X with Ruby 2.0.0
 
 ## Installation
 
