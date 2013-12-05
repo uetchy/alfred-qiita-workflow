@@ -1,12 +1,10 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    plist (3.1.0)
-    rake (0.9.6)
+    rake (10.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  plist
   rake

@@ -1,42 +1,25 @@
-require 'yaml'
-require 'plist'
+BUNDLE_ID    = "co.randompaper.qiita.alfred"
+PACKAGE_FILE = "info.plist"
 
-config_file = 'config.yml'
-workflow_home = File.expand_path('~/Library/Application Support/Alfred 2/Alfred.alfredpreferences/workflows')
-
-$config = YAML.load_file config_file
-$config['bundleid'] = "#{$config['domain']}.#{$config['id']}"
-$config['package_file'] = File.join($config['path'], 'info.plist')
-$config['dbx_workflow_path'] = File.join(File.expand_path($config['dropbox']), '/Alfred.alfredpreferences/workflows')
-
-desc "Generate a plist file for Alfred from config.yml"
-task :configure do
-  package = Plist::parse_xml $config['package_file']
-
-  unless package['bundleid'].eql?($config["bundleid"])
-    package['bundleid'] = $config['bundleid']
-    File.open($config['package_file'], 'wb') do |f|
-      f.write package.to_plist
-    end
-  end
-end
+workflow_home     = File.expand_path('~/Library/Application Support/Alfred 2/Alfred.alfredpreferences/workflows')
+dbx_workflow_path = File.expand_path('~/Dropbox/アプリ/Alfred.alfredpreferences/workflows')
 
 desc "Link to Alfred"
 task :link => [:configure] do
-  ln_sf File.expand_path($config["path"]), File.join(workflow_home, $config["bundleid"])
+  ln_sf File.expand_path('../', __FILE__), File.join(workflow_home, BUNDLE_ID)
 end
 
 desc "Unlink from Alfred"
 task :unlink => [:configure] do
-  rm File.join(workflow_home, $config["bundleid"])
+  rm File.join(workflow_home, BUNDLE_ID)
 end
 
 desc "Install to Alfred Sync folder on Dropbox"
-task :install => [:configure] do
-  ln_sf File.expand_path($config["path"]), File.join($config["dbx_workflow_path"], $config["bundleid"])
+task :link_dropbox => [:configure] do
+  ln_sf File.expand_path('../', __FILE__), File.join(dbx_workflow_path, BUNDLE_ID)
 end
 
 desc "Unlink from Alfred Sync folder on Dropbox"
-task :uninstall => [:configure] do
-  rm File.join($config["dbx_workflow_path"], $config["bundleid"])
+task :unlink_dropbox => [:configure] do
+  rm File.join(dbx_workflow_path, BUNDLE_ID)
 end
