@@ -2,7 +2,7 @@
 
 ![alt tag](https://raw.github.com/oame/alfred-qiita-workflow/master/screenshots/qiita-workflow.png)
 
-# System Requirements
+## System Requirements
 
 - OS X with Ruby 2.0.0
 
