@@ -3,25 +3,57 @@ require 'uri'
 require 'json'
 
 module Qiita::API
-  def self.search(query)
-    uri = URI('https://qiita.com/api/v1/search')
-    params = {q: query}
-    uri.query = URI.encode_www_form(params)
-    res = fetch(uri)
-    JSON(res.body)
+  def self.auth(name: name, password: password)
+    uri = URI('https://qiita.com/api/v1/auth')
+    params = {url_name: name, password: password}
+    fetch uri, params, method: :post
   end
 
-  def self.fetch(uri, limit = 10)
-    raise ArgumentError, 'too many HTTP redirects' if limit == 0
+  def self.search(query, args={})
+    uri = URI('https://qiita.com/api/v1/search')
+    fetch uri, {q: query}.update(args)
+  end
 
-    response = Net::HTTP.get_response(uri)
+  def self.fetch(uri, params={}, *args)
+    defaults = { method: :get, limit: 10 }
+    opt = args.last.kind_of?(Hash)? defaults.update(args.pop) : defaults
+    raise ArgumentError, 'too many HTTP redirects' if opt[:limit] == 0
+
+    if opt[:method] == :get
+      uri.query = URI.encode_www_form(params) if params
+      request = Net::HTTP::Get.new(uri)   
+    else
+      request = Net::HTTP::Post.new(uri)
+      request.set_form_data(params)
+    end
+
+    response = Net::HTTP.start(
+                 uri.host,
+                 uri.port, 
+                 :use_ssl => (uri.scheme == 'https'), 
+                 :verify_mode => OpenSSL::SSL::VERIFY_NONE
+               ) do |https|
+      https.request(request)
+    end
 
     case response
-    when Net::HTTPSuccess then
-      response
-    when Net::HTTPRedirection then
+    when Net::HTTPSuccess
+
+      if(response.class.body_permitted?)
+        begin 
+          JSON(response.body)
+        rescue JSON::ParserError
+          false
+        end
+      else
+        false
+      end
+
+    when Net::HTTPRedirection
       location = response['location']
       fetch(location, limit - 1)
+    when Net::HTTPUnauthorized
+      false
     else
       response.value
     end

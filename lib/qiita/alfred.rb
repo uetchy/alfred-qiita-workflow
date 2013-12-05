@@ -22,4 +22,8 @@ module Qiita::Alfred
 
     doc.to_s
   end 
+
+  def self.message(str)
+    puts Qiita::Alfred.to_alfred([{ uid: 0, arg: nil, title: str, subtitle: nil, icon: 'icon.png'}])
+  end
 end

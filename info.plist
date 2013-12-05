@@ -17,6 +17,39 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>2310843B-B161-45E3-85DC-2E6012E5F32B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>CE609731-0A54-412A-A280-60EF147C38BD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>4C2D68C3-274B-4EF1-9B54-49425EA5B062</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>69080009-C277-4E69-B3E0-4E7122F480FD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>A09B6C79-947F-42CE-91DD-0F3DFDC78C45</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2310843B-B161-45E3-85DC-2E6012E5F32B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>o_ame</string>
@@ -31,18 +64,83 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>ruby ./commands/setup.rb "{query}"</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>2310843B-B161-45E3-85DC-2E6012E5F32B</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>qiita setup</string>
+				<key>subtext</key>
+				<string>RUN: qiita setup &lt;name&gt; &lt;password&gt;</string>
+				<key>text</key>
+				<string>Qiita Setup</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>A09B6C79-947F-42CE-91DD-0F3DFDC78C45</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Qiita</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>CE609731-0A54-412A-A280-60EF147C38BD</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>keyword</key>
-				<string>qiita</string>
+				<string>qiita search</string>
 				<key>runningsubtext</key>
-				<string>Searching...</string>
+				<string>Seaching for "{query}" ...</string>
 				<key>script</key>
-				<string>ruby ./commands/qiita.rb "{query}"</string>
+				<string>ruby ./commands/search.rb "{query}"</string>
+				<key>subtext</key>
+				<string>Search Qiita for "{query}"</string>
 				<key>title</key>
-				<string>Qiita</string>
+				<string>Seatch Qiita</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -72,6 +170,35 @@
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>qiita stocks</string>
+				<key>runningsubtext</key>
+				<string>Seaching for "{query}" ...</string>
+				<key>script</key>
+				<string>ruby ./commands/stocks.rb "{query}"</string>
+				<key>subtext</key>
+				<string>Search Qiita stocks for "{query}"</string>
+				<key>title</key>
+				<string>Search Qiita Stocks</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>4C2D68C3-274B-4EF1-9B54-49425EA5B062</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -80,12 +207,32 @@
 		<key>21557827-8003-42B7-A042-16D4C9278FEC</key>
 		<dict>
 			<key>ypos</key>
-			<real>140</real>
+			<real>170</real>
+		</dict>
+		<key>2310843B-B161-45E3-85DC-2E6012E5F32B</key>
+		<dict>
+			<key>ypos</key>
+			<real>40</real>
+		</dict>
+		<key>4C2D68C3-274B-4EF1-9B54-49425EA5B062</key>
+		<dict>
+			<key>ypos</key>
+			<real>290</real>
 		</dict>
 		<key>69080009-C277-4E69-B3E0-4E7122F480FD</key>
 		<dict>
 			<key>ypos</key>
-			<real>140</real>
+			<real>170</real>
+		</dict>
+		<key>A09B6C79-947F-42CE-91DD-0F3DFDC78C45</key>
+		<dict>
+			<key>ypos</key>
+			<real>40</real>
+		</dict>
+		<key>CE609731-0A54-412A-A280-60EF147C38BD</key>
+		<dict>
+			<key>ypos</key>
+			<real>40</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
