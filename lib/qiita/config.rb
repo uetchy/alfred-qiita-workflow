@@ -2,6 +2,8 @@ require 'json'
 require 'fileutils'
 
 class Qiita::Config < Qiita::Object
+  attr_accessor :name, :token
+
   def initialize(attributes={})
     attributes.empty? ? self.load! : self.update!(attributes)
   end
@@ -12,7 +14,7 @@ class Qiita::Config < Qiita::Object
     begin
       File.open(file_path, 'r') {|f| self.update!(JSON(f.read))}
     rescue Errno::ENOENT, IOError
-      raise Qiita::ConfigFileMissingError, "Run Qiita command format: qiita <QUERY>"
+      raise Qiita::FileMissingError, "RUN: qiita auth <NAME> <PASSWORD>"
     end
   end
 
