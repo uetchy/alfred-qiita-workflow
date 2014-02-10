@@ -1,7 +1,11 @@
 # Bundler
+Gemfile.lock
 /.bundle
 /vendor/bundle
 
 # OS Specific
 .DS_Store
 Thumbs.db
+
+# dotenv
+.env
