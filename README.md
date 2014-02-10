@@ -47,6 +47,12 @@ $ bundle install
 $ bundle exec rake link
 ```
 
+### Test
+```
+$ bundle install
+$ rspec
+```
+
 If you using Alfred with Dropbox Sync folder, you should type `rake link_dropbox` instead of `rake link`.
 
 ## Thanks
