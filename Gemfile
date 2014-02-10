@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-group :development do
+group :development, :test do
   gem 'dotenv'
-  gem 'rspec'
+  gem 'rspec', require: false
 end
