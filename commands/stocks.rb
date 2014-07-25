@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 QUERY = ARGV[0].to_s.strip
 
 require_relative "../lib/qiita"
