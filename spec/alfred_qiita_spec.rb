@@ -13,7 +13,7 @@ describe Qiita::API do
         .with(:body => { :url_name => @mock_user, :password => @mock_pass })
         .to_return(:body => { :url_name => @mock_user, :token => @expect_token }.to_json ,:status => 200)
 
-      @response = Qiita::API.auth name: @mock_user, password: @mock_pass
+      @response = Qiita::API.auth @mock_user, @mock_pass
     end
 
     it 'Response should be Hash' do
