@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 QUERY = ARGV[0].to_s.strip
 
 require_relative "../lib/qiita"
@@ -17,6 +19,6 @@ unless auth
 end
 
 config = Qiita::Config.new name: auth['url_name'], token: auth['token']
-config.save 
+config.save
 
 puts "Setup complete"
