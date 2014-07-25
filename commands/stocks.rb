@@ -15,18 +15,18 @@ unless config.token
   exit
 end
 
-data = Qiita::API.search(QUERY, token: config.token, stocked: 1)
+data = Qiita::API.search(QUERY, :token => config.token, :stocked => 1)
 
 results = []
 data.each do |q|
   subtitle = "Stocks: " + q['stock_count'].to_s + "    LGTM:" + q['lgtm_count'].to_s + "   Comments:" + q['comment_count'].to_s + "   Create At:" + q['created_at']
 
   item = {
-    uid: q['id'],
-    arg: q['url'],
-    title: q['title'],
-    subtitle: subtitle,
-    icon: 'icon.png'
+    :uid => q['id'],
+    :arg => q['url'],
+    :title => q['title'],
+    :subtitle => subtitle,
+    :icon => 'icon.png'
   }
 
   results << item
