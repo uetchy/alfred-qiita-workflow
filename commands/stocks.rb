@@ -5,8 +5,7 @@ require_relative "../lib/qiita"
 begin
   config = Qiita::Config.new
 rescue Qiita::FileMissingError
-  Qiita::Alfred.message "RUN: 'qiita setup' command first"
-  exit
+  config.save
 end
 
 unless config.token

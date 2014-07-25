@@ -1,25 +1,18 @@
+require 'rspec/core/rake_task'
+
 BUNDLE_ID    = "co.randompaper.qiita.alfred"
 PACKAGE_FILE = "info.plist"
 
-workflow_home     = File.expand_path('~/Library/Application Support/Alfred 2/Alfred.alfredpreferences/workflows')
-dbx_workflow_path = File.expand_path('~/Dropbox/アプリ/Alfred.alfredpreferences/workflows')
+ALFRED_WORKFLOW_PATH = ENV['ALFRED_WORKFLOW_PATH'] || File.expand_path('~/Library/Application Support/Alfred 2/Alfred.alfredpreferences/workflows')
+
+task :default => [:spec]
 
 desc "Link to Alfred"
-task :link => [:configure] do
-  ln_sf File.expand_path('../', __FILE__), File.join(workflow_home, BUNDLE_ID)
+task :link do
+  ln_sf File.expand_path('../', __FILE__), File.join(ALFRED_WORKFLOW_PATH, BUNDLE_ID)
 end
 
 desc "Unlink from Alfred"
-task :unlink => [:configure] do
-  rm File.join(workflow_home, BUNDLE_ID)
-end
-
-desc "Install to Alfred Sync folder on Dropbox"
-task :link_dropbox => [:configure] do
-  ln_sf File.expand_path('../', __FILE__), File.join(dbx_workflow_path, BUNDLE_ID)
-end
-
-desc "Unlink from Alfred Sync folder on Dropbox"
-task :unlink_dropbox => [:configure] do
-  rm File.join(dbx_workflow_path, BUNDLE_ID)
+task :unlink do
+  rm File.join(ALFRED_WORKFLOW_PATH, BUNDLE_ID)
 end
