@@ -27,9 +27,9 @@ module Qiita
 
       if opt[:method] == :get
         uri.query = URI.encode_www_form(params) if params
-        request = Net::HTTP::Get.new(uri)
+        request = Net::HTTP::Get.new(uri.request_uri)
       else
-        request = Net::HTTP::Post.new(uri)
+        request = Net::HTTP::Post.new(uri.request_uri)
         request.set_form_data(params)
       end
 
