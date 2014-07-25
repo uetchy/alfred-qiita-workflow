@@ -1,5 +1,7 @@
 # Alfred Qiita Workflow
 
+[![Build Status](https://travis-ci.org/oame/alfred-qiita-workflow.svg?branch=master)](https://travis-ci.org/oame/alfred-qiita-workflow)
+
 ![alt tag](https://raw.github.com/oame/alfred-qiita-workflow/master/screenshots/qiita-workflow.png)
 
 ## System Requirements
