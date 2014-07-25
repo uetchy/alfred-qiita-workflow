@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-group :development, :test do
-  gem 'dotenv'
-  gem 'rspec', require: false
-end
+gem 'rake',  :require => false
+gem 'rspec', require: false
+gem 'webmock'
