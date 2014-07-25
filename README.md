@@ -4,7 +4,7 @@
 
 ## System Requirements
 
-- OS X with Ruby 2.0.0
+- OS X
 
 ## Installation
 
@@ -42,18 +42,22 @@ qiita stocks <query>
 
 ### Development Installation
 
+Run folloing commands to link this workflow to Alfred app manually.
+
 ```
 $ bundle install
 $ bundle exec rake link
 ```
 
-If you using Alfred with Dropbox Sync folder, you should type `rake link_dropbox` instead of `rake link`.
+If you put Alfred settings to another location, you should run following lines
 
-### Test
+```
+$ rake link ALFRED_WORKFLOW_PATH=/path/to/Alfred.alfredpreferences/workflows
+```
+
+### Testing workflow
 ```
 $ bundle install
-$ echo 'NAME=[myname]' >> .env
-$ echo 'PASS=[password]' >> .env
 $ bundle exec rspec
 ```
 
