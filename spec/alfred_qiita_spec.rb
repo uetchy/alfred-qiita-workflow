@@ -36,36 +36,36 @@ describe Qiita::API do
         .with(:query => { :q => @search_word })
         .to_return(:body => [
           {
-            id: 1458,
-            uuid: "bbcca9f634028dc2f11c",
-            user: {
-              id: 1,
-              url_name: "o_ame",
-              profile_image_url: "https://example.com/avatar.png"
+            :id => 1458,
+            :uuid => "bbcca9f634028dc2f11c",
+            :user => {
+              :id => 1,
+              :url_name => "o_ame",
+              :profile_image_url => "https://example.com/avatar.png"
             },
-            title: "test",
-            created_at: "2011-12-26 19:41:26 +0900",
-            updated_at: "2012-03-16 11:30:27 +0900",
-            created_at_in_words: "2年以上",
-            updated_at_in_words: "2年以上",
-            tags: [
+            :title => "test",
+            :created_at => "2011-12-26 19:41:26 +0900",
+            :updated_at => "2012-03-16 11:30:27 +0900",
+            :created_at_in_words => "2年以上",
+            :updated_at_in_words => "2年以上",
+            :tags => [
               {
-                name: "CoffeeScript",
-                url_name: "coffeescript",
-                icon_url: "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/e41b881d25c683db2ce913dba0d07b9695a55741/medium.jpg?1368788624",
-                versions: [ ]
+                :name => "CoffeeScript",
+                :url_name => "coffeescript",
+                :icon_url => "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/e41b881d25c683db2ce913dba0d07b9695a55741/medium.jpg?1368788624",
+                :versions => [ ]
               }
             ],
-            stock_count: 2,
-            comment_count: 0,
-            url: "http://qiita.com/mizchi/items/bbcca9f634028dc2f11c",
-            created_at_as_seconds: 1324896086,
-            tweet: false,
-            gist_url: nil,
-            private: false,
-            raw_body: "feafa",
-            body: "feafewafa",
-            stock_users: [
+            :stock_count => 2,
+            :comment_count => 0,
+            :url => "http://qiita.com/mizchi/items/bbcca9f634028dc2f11c",
+            :created_at_as_seconds => 1324896086,
+            :tweet => false,
+            :gist_url => nil,
+            :private => false,
+            :raw_body => "feafa",
+            :body => "feafewafa",
+            :stock_users => [
               "CLG",
               "mizchi"
             ]
@@ -97,43 +97,43 @@ describe Qiita::API do
         .with(:query => { :q => @search_word, :token => @expected_token, :stocked => 1 })
         .to_return(:body => [
           {
-            id: 1458,
-            uuid: "bbcca9f634028dc2f11c",
-            user: {
-              id: 1,
-              url_name: "o_ame",
-              profile_image_url: "https://example.com/avatar.png"
+            :id => 1458,
+            :uuid => "bbcca9f634028dc2f11c",
+            :user => {
+              :id => 1,
+              :url_name => "o_ame",
+              :profile_image_url => "https://example.com/avatar.png"
             },
-            title: "test",
-            created_at: "2011-12-26 19:41:26 +0900",
-            updated_at: "2012-03-16 11:30:27 +0900",
-            created_at_in_words: "2年以上",
-            updated_at_in_words: "2年以上",
-            tags: [
+            :title => "test",
+            :created_at => "2011-12-26 19:41:26 +0900",
+            :updated_at => "2012-03-16 11:30:27 +0900",
+            :created_at_in_words => "2年以上",
+            :updated_at_in_words => "2年以上",
+            :tags => [
               {
-                name: "CoffeeScript",
-                url_name: "coffeescript",
-                icon_url: "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/e41b881d25c683db2ce913dba0d07b9695a55741/medium.jpg?1368788624",
-                versions: [ ]
+                :name => "CoffeeScript",
+                :url_name => "coffeescript",
+                :icon_url => "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/e41b881d25c683db2ce913dba0d07b9695a55741/medium.jpg?1368788624",
+                :versions => [ ]
               }
             ],
-            stock_count: 2,
-            comment_count: 0,
-            url: "http://qiita.com/mizchi/items/bbcca9f634028dc2f11c",
-            created_at_as_seconds: 1324896086,
-            tweet: false,
-            gist_url: nil,
-            private: false,
-            raw_body: "feafa",
-            body: "feafewafa",
-            stock_users: [
+            :stock_count => 2,
+            :comment_count => 0,
+            :url => "http://qiita.com/mizchi/items/bbcca9f634028dc2f11c",
+            :created_at_as_seconds => 1324896086,
+            :tweet => false,
+            :gist_url => nil,
+            :private => false,
+            :raw_body => "feafa",
+            :body => "feafewafa",
+            :stock_users => [
               "CLG",
               "mizchi"
             ]
           }
         ].to_json ,:status => 200)
 
-      @response = Qiita::API.search(@search_word, token: @expected_token, stocked: 1)
+      @response = Qiita::API.search(@search_word, :token => @expected_token, :stocked => 1)
     end
 
     it 'Response should be Hash' do

@@ -27,7 +27,13 @@ module Qiita
     end
 
     def self.message(str)
-      puts Qiita::Alfred.to_alfred([{ uid: 0, arg: nil, title: str, subtitle: nil, icon: 'icon.png'}])
+      puts Qiita::Alfred.to_alfred([{
+        :uid => 0,
+        :arg => nil,
+        :title => str,
+        :subtitle => nil,
+        :icon => 'icon.png'
+      }])
     end
   end
 end

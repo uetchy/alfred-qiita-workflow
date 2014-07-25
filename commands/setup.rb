@@ -11,14 +11,14 @@ unless credentials.count == 2
   exit
 end
 
-auth = Qiita::API.auth name: credentials.first, password: credentials.last
+auth = Qiita::API.auth credentials.first, credentials.last
 
 unless auth
   puts "ERROR: Authentication failed"
   exit
 end
 
-config = Qiita::Config.new name: auth['url_name'], token: auth['token']
+config = Qiita::Config.new :name => auth['url_name'], :token => auth['token']
 config.save
 
 puts "Setup complete"

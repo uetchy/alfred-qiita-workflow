@@ -9,15 +9,15 @@ module Qiita
 
     ENDPOINT = "https://qiita.com/api/v1/"
 
-    def self.auth(name: name, password: password)
+    def self.auth(name, password)
       uri = URI.join(ENDPOINT, 'auth')
-      params = {url_name: name, password: password}
+      params = {:url_name => name, :password => password}
       fetch uri, params, method: :post
     end
 
     def self.search(query, args={})
       uri = URI.join(ENDPOINT, 'search')
-      fetch uri, {q: query}.update(args)
+      fetch uri, {:q => query}.update(args)
     end
 
     def self.fetch(uri, params={}, *args)
