@@ -20,6 +20,11 @@ module Qiita
       fetch uri, {:q => query}.update(args)
     end
 
+    def self.items(args={})
+      uri = URI.join(ENDPOINT, 'items')
+      fetch uri, args
+    end
+
     def self.fetch(uri, params={}, *args)
       defaults = { method: :get, limit: 10 }
       opt = args.last.kind_of?(Hash)? defaults.update(args.pop) : defaults
