@@ -1,18 +1,20 @@
 # encoding: utf-8
+require 'time'
 
 QUERY = ARGV[0].to_s.strip
 
 require_relative "../lib/qiita"
 
 data = Qiita::API.search(QUERY)
+data.sort! {|a, b| b['stock_count'] <=> a['stock_count'] }
 
 results = []
 data.each do |q|
   arg = q['url']
-  subtitle = "Stocks: " + q['stock_count'].to_s + "    LGTM:" + q['lgtm_count'].to_s + "   Comments:" + q['comment_count'].to_s + "   Create At:" + q['created_at']
+  subtitle = q['stock_count'].to_s + " Stocks, " + q['comment_count'].to_s + " Comments, " + Time.parse(q['created_at']).strftime("%Y/%m/%d %H:%M:%S") + " Created"
 
   item = {
-    :uid => q['id'],
+    :uid => nil,
     :arg => arg,
     :title => q['title'],
     :subtitle => subtitle,
