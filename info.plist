@@ -50,6 +50,17 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>D74C6310-657D-4DDD-99E3-1B8F97A8EA49</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>69080009-C277-4E69-B3E0-4E7122F480FD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>o_ame</string>
@@ -64,17 +75,25 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>escaping</key>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
 				<integer>0</integer>
-				<key>script</key>
-				<string>ruby ./commands/setup.rb "{query}"</string>
-				<key>type</key>
-				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Qiita</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>2310843B-B161-45E3-85DC-2E6012E5F32B</string>
+			<string>CE609731-0A54-412A-A280-60EF147C38BD</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -102,25 +121,17 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>output</key>
+				<key>escaping</key>
 				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>Qiita</string>
+				<key>script</key>
+				<string>ruby ./commands/setup.rb "{query}"</string>
+				<key>type</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>CE609731-0A54-412A-A280-60EF147C38BD</string>
+			<string>2310843B-B161-45E3-85DC-2E6012E5F32B</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -199,6 +210,29 @@
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>qiita my</string>
+				<key>script</key>
+				<string>ruby ./commands/my.rb "{query}"</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>D74C6310-657D-4DDD-99E3-1B8F97A8EA49</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -233,6 +267,11 @@
 		<dict>
 			<key>ypos</key>
 			<real>40</real>
+		</dict>
+		<key>D74C6310-657D-4DDD-99E3-1B8F97A8EA49</key>
+		<dict>
+			<key>ypos</key>
+			<real>410</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
