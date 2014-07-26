@@ -151,7 +151,7 @@
 				<key>subtext</key>
 				<string>Search Qiita for "{query}"</string>
 				<key>title</key>
-				<string>Seatch Qiita</string>
+				<string>Qiita Search Articles</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -185,7 +185,7 @@
 			<key>config</key>
 			<dict>
 				<key>argumenttype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>keyword</key>
@@ -195,9 +195,9 @@
 				<key>script</key>
 				<string>ruby ./commands/stocks.rb "{query}"</string>
 				<key>subtext</key>
-				<string>Search Qiita stocks for "{query}"</string>
+				<string>Search stocks for "{query}"</string>
 				<key>title</key>
-				<string>Search Qiita Stocks</string>
+				<string>Qiita Stocks</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -219,8 +219,14 @@
 				<integer>0</integer>
 				<key>keyword</key>
 				<string>qiita my</string>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}" ...</string>
 				<key>script</key>
 				<string>ruby ./commands/my.rb "{query}"</string>
+				<key>subtext</key>
+				<string>Search my articles for "{query}"</string>
+				<key>title</key>
+				<string>Qiita My Articles</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
