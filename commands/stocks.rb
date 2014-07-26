@@ -16,7 +16,7 @@ unless config.token
   exit
 end
 
-data = Qiita::API.search(QUERY, :token => config.token, :stocked => 1)
+data = !QUERY.empty? ? Qiita::API.search(QUERY, :token => config.token, :stocked => 1) : Qiita::API.get(:stocks, :token => config.token)
 data.sort! {|a, b| b['stock_count'] <=> a['stock_count'] }
 
 results = []

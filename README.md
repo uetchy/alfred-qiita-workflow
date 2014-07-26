@@ -14,22 +14,28 @@ Double-click `Qiita.alfredworkflow` to install Alfred workflow.
 
 ## Commands
 
-### Search items
+### Search articles
 
 ```
 qiita search <query>
 ```
 
-### Fetch authentication token from Qiita
+### Login and save token
 
 ```
 qiita setup <name> <password>
 ```
 
-### Search stocked items from Qiita
+### Search stocked articles
 
 ```
 qiita stocks <query>
+```
+
+### Search your own articles
+
+```
+qiita my <query:optional>
 ```
 
 ## Contributing

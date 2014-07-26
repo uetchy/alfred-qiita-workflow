@@ -16,7 +16,7 @@ unless config.token
   exit
 end
 
-data = Qiita::API.items(:token => config.token)
+data = Qiita::API.get(:items, :token => config.token)
 data.select!{|a| a['title'].scan(QUERY).size > 0 } if QUERY
 
 results = []

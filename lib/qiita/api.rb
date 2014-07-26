@@ -9,22 +9,6 @@ module Qiita
 
     ENDPOINT = "https://qiita.com/api/v1/"
 
-    def self.auth(name, password)
-      uri = URI.join(ENDPOINT, 'auth')
-      params = {:url_name => name, :password => password}
-      fetch uri, params, method: :post
-    end
-
-    def self.search(query, args={})
-      uri = URI.join(ENDPOINT, 'search')
-      fetch uri, {:q => query}.update(args)
-    end
-
-    def self.items(args={})
-      uri = URI.join(ENDPOINT, 'items')
-      fetch uri, args
-    end
-
     def self.fetch(uri, params={}, *args)
       defaults = { method: :get, limit: 10 }
       opt = args.last.kind_of?(Hash)? defaults.update(args.pop) : defaults
@@ -68,6 +52,27 @@ module Qiita
       else
         response.value
       end
+    end
+
+    def self.get(path, args={})
+      uri = URI.join(ENDPOINT, path.to_s)
+      fetch uri, args
+    end
+
+    def self.post(path, args={})
+      uri = URI.join(ENDPOINT, path.to_s)
+      fetch uri, args, method: :post
+    end
+
+    def self.auth(name, password)
+      uri = URI.join(ENDPOINT, 'auth')
+      params = {:url_name => name, :password => password}
+      fetch uri, params, method: :post
+    end
+
+    def self.search(query, args={})
+      uri = URI.join(ENDPOINT, 'search')
+      fetch uri, {:q => query}.update(args)
     end
   end
 end
