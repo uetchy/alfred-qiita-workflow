@@ -30,6 +30,16 @@ module Qiita
       end
     end
 
+    def update!(attributes={})
+      attributes_with!(attributes)
+    end
+
+    def attributes_with!(attributes={})
+      attributes.each do |key, value|
+        self.send(key.to_s+"=", value) if self.respond_to?(key.to_s+"=")
+      end
+    end
+
     def save(file_path="")
       file_path = Qiita::CONFIG_FILE if file_path.empty?
 
