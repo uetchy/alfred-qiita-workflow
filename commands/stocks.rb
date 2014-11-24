@@ -11,6 +11,7 @@ rescue Qiita::FileMissingError
   config.save
 end
 
+# 'stocks' command needs Qiita API Token
 unless config.token
   Qiita::Alfred.message "RUN: 'qiita setup' command first"
   exit
@@ -19,19 +20,6 @@ end
 data = !QUERY.empty? ? Qiita::API.search(QUERY, :token => config.token, :stocked => 1) : Qiita::API.get(:stocks, :token => config.token)
 data.sort! {|a, b| b['stock_count'] <=> a['stock_count'] }
 
-results = []
-data.each do |q|
-  subtitle = q['stock_count'].to_s + " Stocks, " + q['comment_count'].to_s + " Comments, " + Time.parse(q['created_at']).strftime("%Y/%m/%d %H:%M:%S") + " Created"
-
-  item = {
-    :uid => nil,
-    :arg => q['url'],
-    :title => q['title'],
-    :subtitle => subtitle,
-    :icon => 'icon.png'
-  }
-
-  results << item
-end
+results = Qiita::Alfred.messages(data)
 
 puts Qiita::Alfred.to_alfred(results)

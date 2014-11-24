@@ -63,6 +63,12 @@ If you put Alfred settings to another location, you should run following lines
 $ rake link ALFRED_WORKFLOW_PATH=/path/to/Alfred.alfredpreferences/workflows
 ```
 
+You can find Alfred preferences path by `mdfind` command like this:
+
+```
+$ mdfind Alfred.alfredpreferences
+```
+
 ### Testing workflow
 ```
 $ bundle install

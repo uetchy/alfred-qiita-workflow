@@ -26,6 +26,25 @@ module Qiita
       doc.to_s
     end
 
+    def self.messages(texts_array)
+      results = []
+      texts_array.each do |q|
+        subtitle = q['stock_count'].to_s + " Stocks, " + q['comment_count'].to_s + " Comments, " + Time.parse(q['created_at']).strftime("%Y/%m/%d %H:%M:%S") + " Created"
+
+        item = {
+          :uid => nil,
+          :arg => q['url'],
+          :title => q['title'],
+          :subtitle => subtitle,
+          :icon => 'icon.png'
+        }
+
+        results << item
+      end
+
+      return results
+    end
+
     def self.message(str)
       puts Qiita::Alfred.to_alfred([{
         :uid => 0,
