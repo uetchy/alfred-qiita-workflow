@@ -29,7 +29,7 @@ qiita setup <name> <password>
 ### Search stocked articles
 
 ```
-qiita stocks <query>
+qiita stocks <query:optional>
 ```
 
 ### Search your own articles
