@@ -4,10 +4,6 @@
 
 ![alt tag](https://raw.github.com/uetchy/alfred-qiita-workflow/master/screenshots/qiita-workflow.png)
 
-## System Requirements
-
-- OS X
-
 ## Installation
 
 Double-click `Qiita.alfredworkflow` to install Alfred workflow.
@@ -20,10 +16,10 @@ Double-click `Qiita.alfredworkflow` to install Alfred workflow.
 qiita search <query>
 ```
 
-### Login and save token
+### Setup personal access token
 
 ```
-qiita setup <name> <password>
+qiita setup <personal access token>
 ```
 
 ### Search stocked articles

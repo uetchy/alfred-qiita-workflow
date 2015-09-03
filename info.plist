@@ -63,7 +63,7 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>o_ame</string>
+	<string>Yasuaki Uechi</string>
 	<key>description</key>
 	<string>The workflow to search articles on Qiita</string>
 	<key>disabled</key>
