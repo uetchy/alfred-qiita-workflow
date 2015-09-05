@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/pascalw/go-alfred"
 	"fmt"
 	"github.com/codegangsta/cli"
+	"github.com/pascalw/go-alfred"
+	"github.com/spf13/viper"
 	"github.com/uetchy/alfred-qiita-workflow/qiita"
 	"golang.org/x/oauth2"
 )
@@ -11,8 +12,9 @@ import (
 func cmdSearch(c *cli.Context) {
 	query := c.Args().First()
 
+	loadConfig()
 	ts := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: accessToken},
+		&oauth2.Token{AccessToken: viper.GetString("accessToken")},
 	)
 	tc := oauth2.NewClient(oauth2.NoContext, ts)
 	client := qiita.NewClient(tc)

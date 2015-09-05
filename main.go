@@ -6,7 +6,7 @@ import (
 )
 
 const (
-	bundleId    = "co.randompaper.alfred-qiita-workflow"
+	bundleId = "co.randompaper.alfred-qiita-workflow"
 )
 
 func main() {
@@ -18,20 +18,10 @@ func main() {
 			Name:   "search",
 			Action: cmdSearch,
 		},
+		{
+			Name:   "setup",
+			Action: cmdSetup,
+		},
 	}
 	app.Run(os.Args)
-}
-
-func cmdSetToken(c *cli.Context) {
-	token := c.Args().First()
-
-	configPath := "~/Library/Application Support/Alfred 2/Workflow Data/" + bundleId + "/token"
-
-	fout, err := os.Create(configPath)
-	if err != nil {
-		return
-	}
-	defer fout.Close()
-
-	fout.WriteString(token)
 }
