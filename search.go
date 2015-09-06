@@ -4,7 +4,7 @@ import (
 	// "fmt"
 	"github.com/codegangsta/cli"
 	"github.com/pascalw/go-alfred"
-	"github.com/uetchy/alfred-qiita-workflow/qiita"
+	"github.com/uetchy/go-qiita/qiita"
 	"strings"
 )
 
