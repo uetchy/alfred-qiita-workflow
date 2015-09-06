@@ -5,10 +5,13 @@ SYMLINK_TARGET = ${ALFRED_WORKFLOW_PATH}/${BUNDLE_ID}
 
 build:
 	go get ./...
-	gox -osarch="darwin/amd64" -output="bin/{{.OS}}_{{.Arch}}"
+	go build
 
 run:
 	go run *.go
+
+dist:
+	gox -osarch="darwin/amd64" -output="bin/{{.OS}}_{{.Arch}}"
 
 link:
 	ln -sf "$(PWD)" "${SYMLINK_TARGET}"
