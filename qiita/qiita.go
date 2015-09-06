@@ -3,8 +3,8 @@ package qiita
 import (
 	"bytes"
 	"encoding/json"
-	"io"
 	"github.com/google/go-querystring/query"
+	"io"
 	"net/http"
 	"net/url"
 	"reflect"
@@ -35,6 +35,7 @@ type Client struct {
 	UserAgent string
 
 	Items *ItemsService
+	Users *UsersService
 }
 
 func addOptions(s string, opt interface{}) (string, error) {
@@ -65,6 +66,7 @@ func NewClient(httpClient *http.Client) *Client {
 
 	c := &Client{client: httpClient, BaseURL: baseURL, UserAgent: userAgent}
 	c.Items = &ItemsService{client: c}
+	c.Users = &UsersService{client: c}
 	return c
 }
 

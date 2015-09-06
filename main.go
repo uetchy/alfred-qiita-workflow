@@ -10,6 +10,7 @@ import (
 
 const (
 	bundleId = "co.randompaper.alfred-qiita-workflow"
+	version  = "2.0.0"
 )
 
 func newQiitaClient() (*qiita.Client, error) {
@@ -32,14 +33,23 @@ func newQiitaClient() (*qiita.Client, error) {
 func main() {
 	app := cli.NewApp()
 	app.Name = "alfred-qiita"
+	app.Version = version
 	app.Commands = []cli.Command{
+		{
+			Name:   "setup",
+			Action: cmdSetup,
+		},
 		{
 			Name:   "search",
 			Action: cmdSearch,
 		},
 		{
-			Name:   "setup",
-			Action: cmdSetup,
+			Name:   "stocks",
+			Action: cmdStocks,
+		},
+		{
+			Name:   "my",
+			Action: cmdMy,
 		},
 	}
 	app.Run(os.Args)

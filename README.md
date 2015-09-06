@@ -49,14 +49,16 @@ qiita my <query:optional>
 Run folloing commands to link this workflow to Alfred app manually.
 
 ```
-$ bundle install
-$ bundle exec rake link
+$ go get github.com/uetchy/alfred-qiita-workflow
+$ cd $GOPATH/github.com/uetchy/alfred-qiita-workflow
+$ make build
+$ make link
 ```
 
 If you put Alfred settings to another location, you should run following lines
 
 ```
-$ rake link ALFRED_WORKFLOW_PATH=/path/to/Alfred.alfredpreferences/workflows
+$ ALFRED_WORKFLOW_PATH=/path/to/Alfred.alfredpreferences/workflows make link
 ```
 
 You can find Alfred preferences path by `mdfind` command like this:
@@ -66,12 +68,4 @@ $ mdfind Alfred.alfredpreferences
 ```
 
 ### Testing workflow
-```
-$ bundle install
-$ bundle exec rspec
-```
-
-
-## Thanks
-
-- [Alfred 2 Ruby Template](https://github.com/zhaocai/alfred2-ruby-template)
+`soon`
