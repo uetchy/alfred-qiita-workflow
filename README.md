@@ -6,7 +6,7 @@
 
 ## Installation
 
-Double-click `Qiita.alfredworkflow` to install Alfred workflow.
+Download [Latest version](https://github.com/uetchy/alfred-qiita-workflow/releases/latest) of Alfred Qiita Workflow and double-click `Qiita.alfredworkflow` to install it.
 
 ## Commands
 
@@ -18,17 +18,23 @@ qiita search <query>
 
 ### Setup personal access token
 
+Get [Personal Access Token](https://qiita.com/settings/tokens/new) which have the scope of _read_qiita_ and put it on:
+
 ```
 qiita setup <personal access token>
 ```
 
-### Search stocked articles
+### List and search stocked articles
+
+Must be get access token before using it.
 
 ```
 qiita stocks <query:optional>
 ```
 
-### Search your own articles
+### List and search your articles
+
+Must be get access token before using it.
 
 ```
 qiita my <query:optional>
