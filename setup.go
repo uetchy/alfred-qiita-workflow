@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/codegangsta/cli"
 	"github.com/spf13/viper"
 )
@@ -10,5 +11,10 @@ func cmdSetup(c *cli.Context) {
 
 	loadConfig()
 	viper.Set("accessToken", token)
-	saveConfig()
+	err := saveConfig()
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println("Token saved")
 }

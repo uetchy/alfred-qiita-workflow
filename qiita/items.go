@@ -13,7 +13,7 @@ type ItemsService struct {
 type Item struct {
 	RenderedBody *string    `json:"rendered_body"`
 	Body         *string    `json:"body"`
-	Coediting    *bool      `json:"coediting"`
+	CoEditing    *bool      `json:"coediting"`
 	CreatedAt    *time.Time `json:"created_at"`
 	Id           *string    `json:"id"`
 	Private      *bool      `json:"private"`
@@ -21,12 +21,7 @@ type Item struct {
 	Title        *string    `json:"title"`
 	UpdatedAt    *time.Time `json:"updated_at"`
 	URL          *string    `json:"url"`
-	// TODO: User
-}
-
-type Tag struct {
-	Name     *string  `json:"name"`
-	Versions []string `json:"versions"`
+	User         *User      `json:"user"`
 }
 
 type ItemsListOptions struct {

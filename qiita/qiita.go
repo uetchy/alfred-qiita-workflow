@@ -4,8 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"io"
-	// "io/ioutil"
-	"fmt"
 	"github.com/google/go-querystring/query"
 	"net/http"
 	"net/url"
@@ -64,7 +62,6 @@ func NewClient(httpClient *http.Client) *Client {
 		httpClient = http.DefaultClient
 	}
 	baseURL, _ := url.Parse(defaultBaseURL)
-	fmt.Println(baseURL)
 
 	c := &Client{client: httpClient, BaseURL: baseURL, UserAgent: userAgent}
 	c.Items = &ItemsService{client: c}

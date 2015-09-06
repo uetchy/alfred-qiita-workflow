@@ -4,6 +4,8 @@
 <dict>
 	<key>bundleid</key>
 	<string>co.randompaper.qiita.alfred</string>
+	<key>category</key>
+	<string>Internet</string>
 	<key>connections</key>
 	<dict>
 		<key>21557827-8003-42B7-A042-16D4C9278FEC</key>
@@ -65,7 +67,7 @@
 	<key>createdby</key>
 	<string>Yasuaki Uechi</string>
 	<key>description</key>
-	<string>The workflow to search articles on Qiita</string>
+	<string>Search articles from Qiita</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -105,7 +107,7 @@
 				<key>keyword</key>
 				<string>qiita setup</string>
 				<key>subtext</key>
-				<string>RUN: qiita setup &lt;name&gt; &lt;password&gt;</string>
+				<string>qiita setup &lt;personal access token&gt;</string>
 				<key>text</key>
 				<string>Qiita Setup</string>
 				<key>withspace</key>
@@ -121,10 +123,12 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>script</key>
-				<string>ruby ./commands/setup.rb "{query}"</string>
+				<string>./bin/darwin_amd64 setup "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -144,12 +148,20 @@
 				<integer>0</integer>
 				<key>keyword</key>
 				<string>qiita search</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Seaching for "{query}" ...</string>
 				<key>script</key>
-				<string>ruby ./commands/search.rb "{query}"</string>
+				<string>./bin/darwin_amd64 search "{query}"</string>
 				<key>subtext</key>
-				<string>Search Qiita for "{query}"</string>
+				<string>Search articles for "{query}"</string>
 				<key>title</key>
 				<string>Qiita Search Articles</string>
 				<key>type</key>
@@ -190,10 +202,18 @@
 				<integer>0</integer>
 				<key>keyword</key>
 				<string>qiita stocks</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Seaching for "{query}" ...</string>
 				<key>script</key>
-				<string>ruby ./commands/stocks.rb "{query}"</string>
+				<string>./bin/darwin_amd64 stocks "{query}"</string>
 				<key>subtext</key>
 				<string>Search stocks for "{query}"</string>
 				<key>title</key>
@@ -219,10 +239,18 @@
 				<integer>0</integer>
 				<key>keyword</key>
 				<string>qiita my</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}" ...</string>
 				<key>script</key>
-				<string>ruby ./commands/my.rb "{query}"</string>
+				<string>./bin/darwin_amd64 my "{query}"</string>
 				<key>subtext</key>
 				<string>Search my articles for "{query}"</string>
 				<key>title</key>
@@ -281,6 +309,6 @@
 		</dict>
 	</dict>
 	<key>webaddress</key>
-	<string>http://randompaper.co</string>
+	<string>https://github.com/uetchy/alfred-qiita-workflow</string>
 </dict>
 </plist>

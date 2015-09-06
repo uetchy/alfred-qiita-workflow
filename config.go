@@ -14,13 +14,9 @@ type config struct {
 
 var C config
 
-func getHomeDir() string {
-	currentUser, _ := user.Current()
-	return currentUser.HomeDir
-}
-
 func getDefaultConfigPath() string {
-	return filepath.Join(getHomeDir(), "Library/Application Support/Alfred 2/Workflow Data/", bundleId)
+	currentUser, _ := user.Current()
+	return filepath.Join(currentUser.HomeDir, "Library/Application Support/Alfred 2/Workflow Data/", bundleId)
 }
 
 func loadConfig() error {
@@ -49,7 +45,7 @@ func saveConfig() error {
 		return err
 	}
 
-	f, err := os.Create(configPath + "/config.json")
+	f, err := os.Create(filepath.Join(configPath, "config.json"))
 	if err != nil {
 		return err
 	}
