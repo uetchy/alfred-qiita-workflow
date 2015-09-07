@@ -3,12 +3,11 @@ BUNDLE_ID = co.randompaper.alfred-qiita-workflow
 PACKAGE_FILE = info.plist
 SYMLINK_TARGET = ${ALFRED_WORKFLOW_PATH}/${BUNDLE_ID}
 
+default: build
+
 build:
 	go get ./...
 	go build
-
-run:
-	go run *.go
 
 dist:
 	gox -osarch="darwin/amd64" -output="bin/{{.OS}}_{{.Arch}}"
