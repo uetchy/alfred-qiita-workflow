@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	bundleId = "co.randompaper.alfred-qiita-workflow"
+	bundleID = "co.randompaper.alfred-qiita-workflow"
 	version  = "2.0.0"
 )
 

@@ -2,21 +2,22 @@ package main
 
 import (
 	"encoding/json"
+	"github.com/mitchellh/go-homedir"
 	"github.com/spf13/viper"
 	"os"
-	"os/user"
 	"path/filepath"
 )
 
 type config struct {
 	AccessToken string `json:"accessToken"`
+	ID          string `json:"id"`
 }
 
-var C config
+var marshaledConfig config
 
 func getDefaultConfigPath() string {
-	currentUser, _ := user.Current()
-	return filepath.Join(currentUser.HomeDir, "Library/Application Support/Alfred 2/Workflow Data/", bundleId)
+	homeDir, _ := homedir.Dir()
+	return filepath.Join(homeDir, "Library/Application Support/Alfred 2/Workflow Data/", bundleID)
 }
 
 func loadConfig() error {
@@ -33,9 +34,9 @@ func loadConfig() error {
 
 func saveConfig() error {
 	configPath := getDefaultConfigPath()
-	viper.Marshal(&C)
+	viper.Unmarshal(&marshaledConfig)
 
-	buf, err := json.MarshalIndent(C, "", "    ")
+	buf, err := json.MarshalIndent(marshaledConfig, "", "    ")
 	if err != nil {
 		return err
 	}
