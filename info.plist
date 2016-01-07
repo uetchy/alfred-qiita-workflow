@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>co.randompaper.qiita.alfred</string>
+	<string>co.randompaper.alfred-qiita-workflow</string>
 	<key>category</key>
 	<string>Internet</string>
 	<key>connections</key>
@@ -67,7 +67,7 @@
 	<key>createdby</key>
 	<string>Yasuaki Uechi</string>
 	<key>description</key>
-	<string>Search articles from Qiita</string>
+	<string>Search articles of Qiita</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
