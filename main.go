@@ -9,24 +9,23 @@ import (
 )
 
 const (
-	bundleId = "co.randompaper.alfred-qiita-workflow"
+	bundleID = "co.randompaper.alfred-qiita-workflow"
 	version  = "2.0.0"
 )
 
 func newQiitaClient() (*qiita.Client, error) {
-	err := loadConfig()
-	if err != nil {
-		return nil, err
+	loadConfig()
+	var client *qiita.Client
+	if accessToken := viper.GetString("accessToken"); accessToken != "" {
+		ts := oauth2.StaticTokenSource(
+			&oauth2.Token{AccessToken: accessToken},
+		)
+		tc := oauth2.NewClient(oauth2.NoContext, ts)
+		client = qiita.NewClient(tc)
+	} else {
+		client = qiita.NewClient(nil)
 	}
-	accessToken := viper.GetString("accessToken")
-	if accessToken == "" {
-		return nil, err
-	}
-	ts := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: accessToken},
-	)
-	tc := oauth2.NewClient(oauth2.NoContext, ts)
-	client := qiita.NewClient(tc)
+
 	return client, nil
 }
 

@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/codegangsta/cli"
 	"github.com/pascalw/go-alfred"
+	"github.com/spf13/viper"
 )
 
 func cmdStocks(c *cli.Context) {
@@ -11,7 +12,8 @@ func cmdStocks(c *cli.Context) {
 	if err != nil {
 		return
 	}
-	items, _, _ := client.Users.Stocks("uetchy", nil)
+
+	items, _, _ := client.Users.Stocks(viper.GetString("id"), nil)
 
 	alfred.InitTerms(query)
 	response := alfred.NewResponse()

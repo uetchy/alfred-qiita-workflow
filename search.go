@@ -1,10 +1,11 @@
 package main
 
 import (
-	// "fmt"
+	"fmt"
 	"github.com/codegangsta/cli"
 	"github.com/pascalw/go-alfred"
 	"github.com/uetchy/go-qiita/qiita"
+	"os"
 	"strings"
 )
 
@@ -12,7 +13,8 @@ func cmdSearch(c *cli.Context) {
 	query := strings.Join(c.Args(), " ")
 	client, err := newQiitaClient()
 	if err != nil {
-		return
+		fmt.Println(err)
+		os.Exit(1)
 	}
 
 	items, _, _ := client.Items.List(&qiita.ItemsListOptions{Query: query})
