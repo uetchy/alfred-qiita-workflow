@@ -10,7 +10,7 @@ import (
 
 const (
 	bundleID = "co.randompaper.alfred-qiita-workflow"
-	version  = "2.0.0"
+	version  = "2.1.0"
 )
 
 func newQiitaClient() (*qiita.Client, error) {
