@@ -52,7 +52,7 @@ qiita my <query:optional>
 
 ### Development Installation
 
-Run folloing commands to link this workflow to Alfred app manually.
+Run following commands to link this workflow to Alfred app manually.
 
 ```
 $ go get github.com/uetchy/alfred-qiita-workflow
