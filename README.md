@@ -6,7 +6,7 @@
 
 ## Installation
 
-Download [Latest version](https://github.com/uetchy/alfred-qiita-workflow/releases/latest) of Alfred Qiita Workflow and double-click `Qiita.alfredworkflow` to install it.
+Download [latest version of Alfred Qiita Workflow](https://github.com/uetchy/alfred-qiita-workflow/releases/latest) and double-click `Qiita.alfredworkflow` to install it.
 
 ## Commands
 
@@ -18,7 +18,7 @@ qiita search <query>
 
 ### Setup personal access token
 
-Get [Personal Access Token](https://qiita.com/settings/tokens/new) which have the scope of _read_qiita_ and put it on:
+Get [Personal Access Token](https://qiita.com/settings/tokens/new) which have a scope for _read_qiita_ and put it on:
 
 ```
 qiita setup <personal access token>
@@ -26,7 +26,7 @@ qiita setup <personal access token>
 
 ### List and search stocked articles
 
-Must be get access token before using it.
+You MUST set access token in advance.
 
 ```
 qiita stocks <query:optional>
@@ -34,7 +34,7 @@ qiita stocks <query:optional>
 
 ### List and search your articles
 
-Must be get access token before using it.
+You MUST set access token in advance.
 
 ```
 qiita my <query:optional>
@@ -50,9 +50,9 @@ qiita my <query:optional>
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-### Development Installation
+### Development installation
 
-Run following commands to link this workflow to Alfred app manually.
+Run following commands to link this workflow with Alfred.
 
 ```
 $ go get github.com/uetchy/alfred-qiita-workflow
@@ -61,17 +61,18 @@ $ make build
 $ make link
 ```
 
-If you put Alfred settings to another location, you should run following lines
+If you put Alfred settings to another location, you should run following lines:
 
 ```
 $ ALFRED_WORKFLOW_PATH=/path/to/Alfred.alfredpreferences/workflows make link
 ```
 
-You can find Alfred preferences path by `mdfind` command like this:
+You can find Alfred preferences path by `mdfind` command:
 
 ```
 $ mdfind Alfred.alfredpreferences
 ```
 
 ### Testing workflow
-`soon`
+
+`not yet`
