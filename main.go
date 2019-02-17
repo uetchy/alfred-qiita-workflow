@@ -1,11 +1,12 @@
 package main
 
 import (
+	"os"
+
 	"github.com/codegangsta/cli"
 	"github.com/spf13/viper"
 	"github.com/uetchy/go-qiita/qiita"
 	"golang.org/x/oauth2"
-	"os"
 )
 
 const (

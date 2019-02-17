@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"strings"
+
 	"github.com/codegangsta/cli"
 	"github.com/pascalw/go-alfred"
 	"github.com/uetchy/go-qiita/qiita"
-	"os"
-	"strings"
 )
 
 func cmdSearch(c *cli.Context) {

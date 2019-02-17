@@ -2,10 +2,11 @@ package main
 
 import (
 	"encoding/json"
-	"github.com/mitchellh/go-homedir"
-	"github.com/spf13/viper"
 	"os"
 	"path/filepath"
+
+	"github.com/mitchellh/go-homedir"
+	"github.com/spf13/viper"
 )
 
 type config struct {
