@@ -18,7 +18,7 @@ var marshaledConfig config
 
 func getDefaultConfigPath() string {
 	homeDir, _ := homedir.Dir()
-	return filepath.Join(homeDir, "Library/Application Support/Alfred 2/Workflow Data/", bundleID)
+	return filepath.Join(homeDir, "Library/Application Support/Alfred 3/Workflow Data/", bundleID)
 }
 
 func loadConfig() error {
