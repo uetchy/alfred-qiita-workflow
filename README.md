@@ -72,7 +72,3 @@ You can find Alfred preferences path by `mdfind` command:
 ```
 $ mdfind Alfred.alfredpreferences
 ```
-
-### Testing workflow
-
-`not yet`

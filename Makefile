@@ -1,19 +1,16 @@
-ALFRED_WORKFLOW_PATH ?= ~/Library/Application Support/Alfred 2/Alfred.alfredpreferences/workflows
-BUNDLE_ID = co.randompaper.alfred-qiita-workflow
+ALFRED_WORKFLOW_PATH ?= ~/Library/Application Support/Alfred 3/Alfred.alfredpreferences/workflows
+BUNDLE_ID = io.uechi.alfred-workflow.qiita
 PACKAGE_FILE = info.plist
 SYMLINK_TARGET = ${ALFRED_WORKFLOW_PATH}/${BUNDLE_ID}
 
 default: build
 
 build:
-	go get ./...
-	go build
-
-dist:
-	gox -osarch="darwin/amd64" -output="bin/{{.OS}}_{{.Arch}}"
+	dep ensure
+	gox -osarch="darwin/amd64" -output="workflow/bin/alfred-qiita-workflow"
 
 link:
-	ln -sf "$(PWD)" "${SYMLINK_TARGET}"
+	ln -sf "$(PWD)/workflow" "${SYMLINK_TARGET}"
 
 unlink:
 	rm "${SYMLINK_TARGET}"
