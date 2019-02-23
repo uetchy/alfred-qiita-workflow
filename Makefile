@@ -9,7 +9,7 @@ build:
 	dep ensure
 	gox -osarch="darwin/amd64" -output="workflow/bin/alfred-qiita-workflow"
 
-package:
+package: build
 	rm -f Qiita.alfredworkflow
 	cd workflow; zip -r ../Qiita.zip *
 	mv Qiita.zip Qiita.alfredworkflow
