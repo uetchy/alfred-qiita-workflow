@@ -1,6 +1,6 @@
 # Alfred Qiita Workflow
 
-[![Build Status](https://travis-ci.org/uetchy/alfred-qiita-workflow.svg?branch=master)](https://travis-ci.org/uetchy/alfred-qiita-workflow)
+[![Build Status](https://travis-ci.com/uetchy/alfred-qiita-workflow.svg?branch=master)](https://travis-ci.com/uetchy/alfred-qiita-workflow)
 
 ![alt tag](https://raw.github.com/uetchy/alfred-qiita-workflow/master/screenshots/qiita-workflow.png)
 
