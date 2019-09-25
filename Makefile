@@ -6,7 +6,6 @@ SYMLINK_TARGET = ${ALFRED_WORKFLOW_PATH}/${BUNDLE_ID}
 default: build
 
 build:
-	dep ensure
 	gox -osarch="darwin/amd64" -output="workflow/bin/alfred-qiita-workflow"
 
 package: build
