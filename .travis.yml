@@ -3,7 +3,5 @@ go:
   - stable
 script:
   - go get -v github.com/mitchellh/gox
-  - go get -v github.com/golang/dep/cmd/dep
-  - dep ensure -v -vendor-only
   - gox -osarch="linux/amd64" -output="workflow/bin/alfred-qiita-workflow" -ldflags="-X main.Version=`git describe --tags --match 'v*'`"
-  - './workflow/bin/alfred-qiita-workflow --version'
+  - "./workflow/bin/alfred-qiita-workflow --version"
