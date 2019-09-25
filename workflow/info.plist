@@ -59,6 +59,16 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>0A7A04C3-CE54-4A81-B06F-DEC7C926BE5E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Proceed to Qiita for new token with 'read_qiita' scope</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
 		</array>
 		<key>D74C6310-657D-4DDD-99E3-1B8F97A8EA49</key>
 		<array>
@@ -109,11 +119,11 @@
 			<key>config</key>
 			<dict>
 				<key>argumenttype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>keyword</key>
 				<string>qiita setup</string>
 				<key>subtext</key>
-				<string>qiita setup &lt;personal access token&gt;</string>
+				<string>qiita setup &lt;personal access token&gt; / or press cmd+enter to obtain new token</string>
 				<key>text</key>
 				<string>Setup Qiita Workflow</string>
 				<key>withspace</key>
@@ -152,10 +162,31 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://qiita.com/settings/tokens/new</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>0A7A04C3-CE54-4A81-B06F-DEC7C926BE5E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -194,26 +225,7 @@
 			<key>uid</key>
 			<string>21557827-8003-42B7-A042-16D4C9278FEC</string>
 			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>{query}</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>69080009-C277-4E69-B3E0-4E7122F480FD</string>
-			<key>version</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -222,6 +234,8 @@
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -260,7 +274,26 @@
 			<key>uid</key>
 			<string>4C2D68C3-274B-4EF1-9B54-49425EA5B062</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>69080009-C277-4E69-B3E0-4E7122F480FD</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -269,6 +302,8 @@
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -307,61 +342,68 @@
 			<key>uid</key>
 			<string>D74C6310-657D-4DDD-99E3-1B8F97A8EA49</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>0A7A04C3-CE54-4A81-B06F-DEC7C926BE5E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>415</integer>
+			<key>ypos</key>
+			<integer>170</integer>
+		</dict>
 		<key>21557827-8003-42B7-A042-16D4C9278FEC</key>
 		<dict>
 			<key>xpos</key>
-			<integer>300</integer>
+			<integer>45</integer>
 			<key>ypos</key>
-			<real>170</real>
+			<integer>170</integer>
 		</dict>
 		<key>2310843B-B161-45E3-85DC-2E6012E5F32B</key>
 		<dict>
 			<key>xpos</key>
-			<integer>500</integer>
+			<integer>415</integer>
 			<key>ypos</key>
-			<real>40</real>
+			<integer>40</integer>
 		</dict>
 		<key>4C2D68C3-274B-4EF1-9B54-49425EA5B062</key>
 		<dict>
 			<key>xpos</key>
-			<integer>300</integer>
+			<integer>45</integer>
 			<key>ypos</key>
-			<real>290</real>
+			<integer>300</integer>
 		</dict>
 		<key>69080009-C277-4E69-B3E0-4E7122F480FD</key>
 		<dict>
 			<key>xpos</key>
-			<integer>500</integer>
+			<integer>415</integer>
 			<key>ypos</key>
-			<real>170</real>
+			<integer>300</integer>
 		</dict>
 		<key>A09B6C79-947F-42CE-91DD-0F3DFDC78C45</key>
 		<dict>
 			<key>xpos</key>
-			<integer>300</integer>
+			<integer>45</integer>
 			<key>ypos</key>
-			<real>40</real>
+			<integer>40</integer>
 		</dict>
 		<key>CE609731-0A54-412A-A280-60EF147C38BD</key>
 		<dict>
 			<key>xpos</key>
-			<integer>700</integer>
+			<integer>575</integer>
 			<key>ypos</key>
-			<real>40</real>
+			<integer>40</integer>
 		</dict>
 		<key>D74C6310-657D-4DDD-99E3-1B8F97A8EA49</key>
 		<dict>
 			<key>xpos</key>
-			<integer>300</integer>
+			<integer>45</integer>
 			<key>ypos</key>
-			<real>410</real>
+			<integer>435</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>

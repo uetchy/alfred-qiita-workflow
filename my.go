@@ -11,7 +11,17 @@ func cmdMy(c *cli.Context) {
 	if err != nil {
 		return
 	}
-	items, _, _ := client.AuthenticatedUser.Items(nil)
+	items, _, err := client.AuthenticatedUser.Items(nil)
+	if err != nil {
+		errRes := alfred.NewResponse()
+		errRes.AddItem(&alfred.AlfredResponseItem{
+			Valid:    true,
+			Title:    "Failed to authorize",
+			Subtitle: "Press 'qiita setup' to setup your personal token",
+		})
+		errRes.Print()
+		return
+	}
 
 	alfred.InitTerms(query)
 	response := alfred.NewResponse()

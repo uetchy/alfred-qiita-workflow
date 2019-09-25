@@ -13,7 +13,17 @@ func cmdStocks(c *cli.Context) {
 		return
 	}
 
-	items, _, _ := client.Users.Stocks(viper.GetString("id"), nil)
+	items, _, err := client.Users.Stocks(viper.GetString("id"), nil)
+	if err != nil {
+		errRes := alfred.NewResponse()
+		errRes.AddItem(&alfred.AlfredResponseItem{
+			Valid:    true,
+			Title:    "Failed to authorize",
+			Subtitle: "Press 'qiita setup' to setup your personal token",
+		})
+		errRes.Print()
+		return
+	}
 
 	alfred.InitTerms(query)
 	response := alfred.NewResponse()
